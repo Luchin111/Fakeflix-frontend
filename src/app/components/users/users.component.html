@@ -1,0 +1,23 @@
+
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">username</th>
+        <th scope="col">email</th>
+        <th scope="col">phone_number</th>
+        <th scope="col">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <th scope="row">{{user.userId}}</th>
+        <td>{{user.username}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.phoneNumber}}</td>
+        <td>{{user.catUserStatus}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <button (click)="refrezcar()">Actualizar</button>
