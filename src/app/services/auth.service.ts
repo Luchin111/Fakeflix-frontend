@@ -51,4 +51,9 @@ export class AuthService {
       this.router.navigate(["login"]);
     }
   }
+  gethour(){
+    const current = new Date();
+    const timestamp = current.getTime();
+    return timestamp;
+  }
 }

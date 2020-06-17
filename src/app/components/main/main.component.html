@@ -1,7 +1,7 @@
 <body>
 
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="#">FakeFlix</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -9,21 +9,22 @@
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
         </li>
+        
         <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#">Disabled</a>
+          <a class="nav-link disabled" href="#">Perfil</a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+          <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu</a>
           <div class="dropdown-menu" aria-labelledby="dropdown01">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
+            <a class="dropdown-item" [hidden]="!edituser">Gestion de Usuarios</a>
+            <a class="dropdown-item" [hidden]="!editproduct">Gestionar Productos</a>
+            <a class="dropdown-item" >Salir</a>
           </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#">{{exp * 1000 | date:'yyyy-MM-dd HH:mm:ss Z'}}</a>
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">
@@ -38,29 +39,32 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
-        <h1 class="display-3">Hello, world!</h1>
-        <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more »</a></p>
+        <h1 class="display-3">Bienvenido a Fakeflix!</h1>
+        <p>Esta es la pagina principal en cual puedes ingresar a las opciones a las que tengas los permisos correspondientes</p>
+        
       </div>
     </div>
-
+    
     <div class="container">
       <!-- Example row of columns -->
       <div class="row">
-        <div class="col-md-4">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-secondary" routerLink="/users" role="button">Gestion de Usuarios »</a></p>
+        <div class="col-md-4" [hidden]="!edituser">
+          <h2>Usuarios</h2>
+          <p>Esta es la opcion para la gestion de usuarios</p>
+          <p><a class="btn btn-secondary" routerLink="/users" role="button">Gestionar usuarios »</a></p>
+
         </div>
-        <div class="col-md-4">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+        <div class="col-md-4" [hidden]="!editproduct">
+          <h2>Productos</h2>
+          <p>Esta es la opcion para la gestion de productos</p>
           <p><a class="btn btn-secondary" href="" role="button">Gestionar Productos »</a></p>
+
         </div>
         <div class="col-md-4">
-          <h2>Heading</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+          <h2>Salir</h2>
+          <p>Si desea salir del sistema, esta es la opcion.</p>
           <p><a class="btn btn-secondary" (click)="salir()" role="button">Salir »</a></p>
+
         </div>
       </div>
 
@@ -70,9 +74,118 @@
 
   </main>
 
-  <footer class="container">
-    <p>© Company 2017-2018</p>
-  </footer>
+<!-- Footer -->
+<footer class="page-footer font-small blue fixed-bottom">
+
+ <!-- Footer Elements -->
+ <div class="container">
+
+  <!--Grid row-->
+  <div class="row">
+
+    <!--Grid column-->
+    <div class="col-lg-2 col-md-12 mb-4">
+
+      <!--Image-->
+      <div class="view overlay z-depth-1-half">
+        <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(73).jpg" class="img-fluid"
+          alt="">
+        <a href="">
+          <div class="mask rgba-white-light"></div>
+        </a>
+      </div>
+
+    </div>
+    <!--Grid column-->
+
+    <!--Grid column-->
+    <div class="col-lg-2 col-md-6 mb-4">
+
+      <!--Image-->
+      <div class="view overlay z-depth-1-half">
+        <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(78).jpg" class="img-fluid"
+          alt="">
+        <a href="">
+          <div class="mask rgba-white-light"></div>
+        </a>
+      </div>
+
+    </div>
+    <!--Grid column-->
+
+    <!--Grid column-->
+    <div class="col-lg-2 col-md-6 mb-4">
+
+      <!--Image-->
+      <div class="view overlay z-depth-1-half">
+        <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(79).jpg" class="img-fluid"
+          alt="">
+        <a href="">
+          <div class="mask rgba-white-light"></div>
+        </a>
+      </div>
+
+    </div>
+    <!--Grid column-->
+
+    <!--Grid column-->
+    <div class="col-lg-2 col-md-12 mb-4">
+
+      <!--Image-->
+      <div class="view overlay z-depth-1-half">
+        <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(81).jpg" class="img-fluid"
+          alt="">
+        <a href="">
+          <div class="mask rgba-white-light"></div>
+        </a>
+      </div>
+
+    </div>
+    <!--Grid column-->
+
+    <!--Grid column-->
+    <div class="col-lg-2 col-md-6 mb-4">
+
+      <!--Image-->
+      <div class="view overlay z-depth-1-half">
+        <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(82).jpg" class="img-fluid"
+          alt="">
+        <a href="">
+          <div class="mask rgba-white-light"></div>
+        </a>
+      </div>
+
+    </div>
+    <!--Grid column-->
+
+    <!--Grid column-->
+    <div class="col-lg-2 col-md-6 mb-4">
+
+      <!--Image-->
+      <div class="view overlay z-depth-1-half">
+        <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(84).jpg" class="img-fluid"
+          alt="">
+        <a href="">
+          <div class="mask rgba-white-light"></div>
+        </a>
+      </div>
+
+    </div>
+    <!--Grid column-->
+
+  </div>
+  <!--Grid row-->
+
+</div>
+<!-- Footer Elements -->
+
+<!-- Copyright -->
+<div class="footer-copyright text-center py-3">© 2020 Fakeflix
+</div>
+<!-- Copyright -->
+</footer>
+<!-- Footer -->
+
   
 
 
