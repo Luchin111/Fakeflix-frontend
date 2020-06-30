@@ -16,6 +16,7 @@ export class UsersComponent implements OnInit {
   public edituser: boolean = false;
   public editproduct: boolean = false;
   public delete: boolean = false;
+  
   constructor(private authService:AuthService, private router:Router) {
     this.authService.verificar();
     this.getuser();

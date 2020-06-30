@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
     
   handleResponse(data) {
     this.submitClicked=0;
-    this.router.navigate(["main"]);
+    this.router.navigate(["cities"]);
     alert ("Ingreso CORRECTO");
     this.Auth.setauth(data.authentication);
     this.Auth.setref(data.refresh);

@@ -8,12 +8,20 @@ import { LoginComponent } from './components/login/login.component';
 import { MainComponent } from './components/main/main.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UsersComponent } from './components/users/users.component';
+import { CitiesComponent } from './components/cities/cities.component';
+import { NavbarComponent } from './_layout/navbar/navbar.component';
+import { FooterComponent } from './_layout/footer/footer.component';
+import { AppLayoutComponent } from './_layout/app-layout/app-layout.component';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     MainComponent,
-    UsersComponent
+    UsersComponent,
+    CitiesComponent,
+    NavbarComponent,
+    FooterComponent,
+    AppLayoutComponent
   ],
   imports: [
     BrowserModule,
