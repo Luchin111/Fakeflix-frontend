@@ -18,8 +18,8 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu</a>
           <div class="dropdown-menu" aria-labelledby="dropdown01">
-            <a class="dropdown-item" href="#">Gestion de Usuarios</a>
-            <a class="dropdown-item" href="#">Gestionar Productos</a>
+            <a class="dropdown-item" [routerLink]="['/orders']">Gestion de Usuarios</a>
+            <a class="dropdown-item" [routerLink]="['/detail']">Gestionar Productos</a>
             <a class="dropdown-item" href="#">Salir</a>
           </div>
         </li>
@@ -74,25 +74,5 @@
     </div> <!-- /container -->
 
   </main>
-
-<!-- Footer -->
-<footer class="page-footer font-small blue fixed-bottom">
-
- <!-- Footer Elements -->
- <div class="container">
-
-
-</div>
-<!-- Footer Elements -->
-
-<!-- Copyright -->
-<div class="footer-copyright text-center py-3">© 2020 Fakeflix
-</div>
-<!-- Copyright -->
-</footer>
-<!-- Footer -->
-
-  
-
 
 </body>

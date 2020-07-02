@@ -10,9 +10,15 @@ import * as jwt_decode from "jwt-decode";
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit {
+  clickMessage = '';
   token = null;
+  refresh = null;
   users: user[];
   permisos=null;
+  public name: string='null';
+  public ref = {
+   refresh: null,
+  };
   public edituser: boolean = false;
   public editproduct: boolean = false;
   public delete: boolean = false;
@@ -27,10 +33,23 @@ export class UsersComponent implements OnInit {
   ngOnInit(): void {
   }
   refrezcar(){
-    this.authService.refresh();
+
+    this.refresh=this.authService.getRefresh();
+    console.log(this.refresh);
+    this.authService.refresh().subscribe(res=>{
+      console.log('res:',res);
+      let response:any = res;
+      this.authService.setauth( response.authentication);
+      this.authService.setref( response.refresh);
+      this.getuser();
+    },error=>console.error('error:',error));
+  }
+  onClickMe() {
+    this.clickMessage = 'You are my hero!';
   }
   getuser(){
-    this.token=this.authService.token();
+    this.token=this.authService.getToken();
+    
     console.log(this.token);
     this.authService.getDatos(this.token).subscribe((data: user[]) => {
       this.users = data;
@@ -59,19 +78,20 @@ export class UsersComponent implements OnInit {
   }
   loadData(permisos) {
     for (let marker of permisos) {
-      if (marker == "PAGE_PRODUCT_MANAGEMENT") {
+      if (marker == "PAGE_USER_CLIENT") {
         console.log("Puede gestionar productos")
         this.editproduct=true;
         
       }
       if (marker == "BUTTON_DELETE_USER") {
         console.log("Puede eliminar usuarios")
-        this.edituser=true;
-      }
-      if (marker == "PAGE_USER_MANAGEMENT") {
-        console.log("Puede gestionar usuarios")
         this.delete=true;
       }
+      if (marker == "PAGE_ORDERS_MANGEMENT") {
+        console.log("Puede gestionar usuarios")
+        this.edituser=true;
+      }
     }
-  }
+  
+}
 }

@@ -14,21 +14,21 @@
       <!-- Example row of columns -->
       <div class="row">
         <div class="col-md-4" [hidden]="!edituser">
-          <h2>Estrenos</h2>
-          <p>Disfruta de los nuevos estrenos que tenemos para ti!</p>
-          <p><a class="btn btn-secondary" routerLink="/users" role="button">Ir a Estrenos »</a></p>
+          <h2>Clientes</h2>
+          <p>Lista de los clientes</p>
+          <p><a class="btn btn-secondary" routerLink="../users" role="button">Lista de Clientes »</a></p>
 
         </div>
         <div class="col-md-4" [hidden]="!editproduct">
-          <h2>Lista de Peliculas</h2>
-          <p>Aqui puedes ver nuestra seleccion de peliculas </p>
-          <p><a class="btn btn-secondary" href="" role="button">Lista de peliculas »</a></p>
+          <h2>Pedidos</h2>
+          <p>Lista de los pedidos </p>
+          <p><a class="btn btn-secondary" href="" [routerLink]="['../orders']" role="button">Lista de Pedidos »</a></p>
 
         </div>
         <div class="col-md-4">
-          <h2>Salir</h2>
-          <p>Si desea salir del sistema, esta es la opcion.</p>
-          <p><a class="btn btn-secondary" (click)="salir()" role="button">Salir »</a></p>
+          <h2>Reservas</h2>
+          <p>Lista de Reservas</p>
+          <p><a class="btn btn-secondary" href="" role="button">Lista de Reservas »</a></p>
 
         </div>
       </div>

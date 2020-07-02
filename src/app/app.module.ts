@@ -12,6 +12,8 @@ import { CitiesComponent } from './components/cities/cities.component';
 import { NavbarComponent } from './_layout/navbar/navbar.component';
 import { FooterComponent } from './_layout/footer/footer.component';
 import { AppLayoutComponent } from './_layout/app-layout/app-layout.component';
+import { OrdersComponent } from './components/orders/orders.component';
+import { DetailComponent } from './components/detail/detail.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +23,9 @@ import { AppLayoutComponent } from './_layout/app-layout/app-layout.component';
     CitiesComponent,
     NavbarComponent,
     FooterComponent,
-    AppLayoutComponent
+    AppLayoutComponent,
+    OrdersComponent,
+    DetailComponent
   ],
   imports: [
     BrowserModule,

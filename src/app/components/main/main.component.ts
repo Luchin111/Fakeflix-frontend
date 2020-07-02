@@ -19,8 +19,8 @@ export class MainComponent implements OnInit {
   public editproduct: boolean = false;
   public delete: boolean = false;
   constructor(private authService:AuthService, private router:Router) { 
-    this.token=this.authService.token();
-    this.refresh=this.authService.refresh();
+    this.token=this.authService.getToken();
+    this.refresh=this.authService.getRefresh();
     this.authService.verificar();
     this.getuser();
     this.timesession();
@@ -59,18 +59,18 @@ export class MainComponent implements OnInit {
   }
   loadData(permisos) {
       for (let marker of permisos) {
-        if (marker == "PAGE_PRODUCT_MANAGEMENT") {
-          console.log("Puede gestionar productos")
+        if (marker == "PAGE_USER_CLIENT") {
+          console.log("Puede gestionar usuarios")
           this.editproduct=true;
           
         }
         if (marker == "BUTTON_DELETE_USER") {
           console.log("Puede eliminar usuarios")
-          this.edituser=true;
-        }
-        if (marker == "PAGE_USER_MANAGEMENT") {
-          console.log("Puede gestionar usuarios")
           this.delete=true;
+        }
+        if (marker == "PAGE_ORDERS_MANGEMENT") {
+          console.log("Puede gestionar ordenes")
+          this.edituser=true;
         }
       }
     

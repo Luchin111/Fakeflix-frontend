@@ -1,0 +1,108 @@
+<nav>
+  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#pagados" role="tab" aria-controls="nav-home" aria-selected="true">Pagados</a>
+    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#preparados" role="tab" aria-controls="nav-profile" aria-selected="false">Preparados</a>
+    <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#despachados" role="tab" aria-controls="nav-contact" aria-selected="false">Despachados</a>
+    <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#entregados" role="tab" aria-controls="nav-contact" aria-selected="false">Entregados</a>
+  </div>
+</nav>
+<div class="tab-content" id="nav-tabContent" >
+  <div  class="tab-pane fade show active" id="pagados" role="tabpanel" aria-labelledby="nav-home-tab">
+    <table class="table">
+      <thead class="thead-dark">
+        <tr >
+          <th scope="col">Numero de Pedido</th>
+          <th scope="col">Fecha de Pedido</th>
+          <th scope="col">Cliente</th>
+          <th scope="col">Direccion</th>
+          <th scope="col">Cantidad de Productos </th>
+          <th scope="col">Opciones </th>
+        </tr>
+      </thead>
+      <tbody >
+        <tr class="thead-light" *ngFor="let pagado of pagados; let i = index">
+          <th scope="row">{{pagado.order_id}}</th>
+          <td>{{pagado.date}}</td>
+          <td>{{pagado.first_name}} {{pagado.first_surname}}</td>
+          <td>{{pagado.direction}}</td>
+          <td>{{pagado.quantity}}</td>
+          <td >
+            <button type="button" class="btn btn-info" [routerLink]="['../detail',pagado.order_id]" >Ver detalle</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="tab-pane fade" id="preparados" role="tabpanel" aria-labelledby="nav-profile-tab">
+    <table class="table">
+      <thead class="thead-dark">
+        <tr >
+          <th scope="col">Numero de Pedido</th>
+          <th scope="col">Fecha de Pedido</th>
+          <th scope="col">Cliente</th>
+          <th scope="col">Direccion</th>
+          <th scope="col">Cantidad de Productos </th>
+          <th scope="col">Opciones </th>
+        </tr>
+      </thead>
+      <tbody >
+        <tr class="thead-light" *ngFor="let preparado of preparados; let i = index">
+          <th scope="row">{{preparado.order_id}}</th>
+          <td>{{preparado.date}}</td>
+          <td>{{preparado.first_name}} {{preparado.first_surname}}</td>
+          <td>{{preparado.direction}}</td>
+          <td>{{preparado.quantity}}</td>
+          <td ><button type="button" class="btn btn-info" [routerLink]="['../detail',preparado.order_id]" >Ver detalle</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="tab-pane fade" id="despachados" role="tabpanel" aria-labelledby="nav-contact-tab">
+    <table class="table">
+      <thead class="thead-dark">
+        <tr >
+          <th scope="col">Numero de Pedido</th>
+          <th scope="col">Fecha de Pedido</th>
+          <th scope="col">Cliente</th>
+          <th scope="col">Direccion</th>
+          <th scope="col">Cantidad de Productos </th>
+          <th scope="col">Opciones </th>
+        </tr>
+      </thead>
+      <tbody >
+        <tr class="thead-light" *ngFor="let despachado of despachados; let i = index">
+          <th scope="row">{{despachado.order_id}}</th>
+          <td>{{despachado.date}}</td>
+          <td>{{despachado.first_name}} {{despachado.first_surname}}</td>
+          <td>{{despachado.direction}}</td>
+          <td>{{despachado.quantity}}</td>
+          <td ><button type="button" class="btn btn-info" [routerLink]="['../detail',despachado.order_id]" >Ver detalle</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="tab-pane fade" id="entregados" role="tabpanel" aria-labelledby="nav-contact-tab">
+    <table class="table">
+      <thead class="thead-dark">
+        <tr >
+          <th scope="col">Numero de Pedido</th>
+          <th scope="col">Fecha de Pedido</th>
+          <th scope="col">Cliente</th>
+          <th scope="col">Direccion</th>
+          <th scope="col">Cantidad de Productos </th>
+          <th scope="col">Opciones </th>
+        </tr>
+      </thead>
+      <tbody >
+        <tr class="thead-light" *ngFor="let entregado of entregados; let i = index">
+          <th scope="row">{{entregado.order_id}}</th>
+          <td>{{entregado.date}}</td>
+          <td>{{entregado.first_name}} {{entregado.first_surname}}</td>
+          <td>{{entregado.direction}}</td>
+          <td>{{entregado.quantity}}</td>
+          <td ><button type="button" class="btn btn-info" [routerLink]="['../detail',entregado.order_id]" >Ver detalle</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+  <button type="button" class="btn btn-secondary" (click)="getOrders()"> <i class="fa fa-refresh" aria-hidden="true"></i>  Actualizar</button>
